@@ -16,7 +16,7 @@ def spam(f):
 def greeting(name):
   print("Hello, " + name)
 
-def func():
+def rand_num():
   sal = ''.join([str(random.randint(0, 9)) for i in range(12)])
   return sal
 

@@ -14,11 +14,6 @@ class Foo:
     def bar(self):
         """Help for the bar method of Foo classes"""
 
-def spam(f):
-    """Help for the spam function"""
-
-def greeting(name):
-  print("Hello, " + name)
 
 
 # Defined functions

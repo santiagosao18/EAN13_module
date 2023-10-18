@@ -8,11 +8,45 @@ import random
 
 # Defined classes
 
-class Foo:
-    """Help for the class Foo"""
-
-    def bar(self):
-        """Help for the bar method of Foo classes"""
+class Code:
+  # Class Variable
+  # animal = 'dog'
+  # The init method or constructor
+  def __init__(self, code):
+  # Instance Variable
+    self.code = code
+  # Adds an instance variable
+  def set_digit(self, ind, digit):
+    if ind >= 13:
+      print("not possible to change the check digit.")
+    else:
+      inter = self.code[:ind-1] + str(digit) + self.code[ind:]
+      odd = sum([int(inter[i]) for i in range(len(inter)-1) if i%2 == 0])
+      even = 3 * sum([int(inter[i]) for i in range(len(inter)) if i%2 == 1])
+      cd = str(10 - (odd + even) % 10)
+      self.code = inter[:-1] + cd
+  # Retrieves instance variable
+  def get_checkdigit(self):
+    return self.code[-1]
+  # Retrieves instance variable
+  def get_infodigit(self):
+    return self.code[:-1]
+  # Check if ean
+  def ean(self):
+    """
+    Function that checks if a sequence of 13 digits is a correct ean13
+    number.
+    """
+    if len(self.code) != 13:
+      return False
+    else:
+      odd = sum([int(self.code[i]) for i in range(len(self.code)-1) if i%2 == 0])
+      even = 3 * sum([int(self.code[i]) for i in range(len(self.code)) if i%2 == 1])
+      cd = str(10 - (odd + even) % 10)
+      if cd == self.code[-1]:
+       return True
+      else:
+       return False
 
 
 

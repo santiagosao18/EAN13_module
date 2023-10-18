@@ -27,12 +27,27 @@ def check_digit(digits):
   cd = 10 - (odd + even) % 10
   return str(cd)
 
-def rand_num():
+def rand_ean_num():
   """
   Function that creates a random ean13 number.
   """
   sal = ''.join([str(random.randint(0, 9)) for i in range(12)])
   cd = check_digit(sal)
+  sal = sal + cd
+  return sal
+
+def rand_nean_num():
+  """
+  Function that creates a random ean13 number.
+  """
+  sal = ''.join([str(random.randint(0, 9)) for i in range(12)])
+  cd = check_digit(sal)
+  eq = True
+  while eq:
+    cdr = str(random.randint(0, 9))
+    if cdr != cd:
+      cd = cdr
+      eq = False
   sal = sal + cd
   return sal
 

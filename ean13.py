@@ -3,7 +3,7 @@ Module to create and check EAN13 numbers.
 Otra parte.
 """
 
-# Imported libraries
+# Imported external libraries
 import random
 
 # Defined classes
@@ -15,7 +15,8 @@ class Code:
   def __init__(self, code):
   # Instance Variable
     self.code = code
-  # Adds an instance variable
+  # Changes the digit at position "ind" and recomputes the check digit
+  # to produce a correct ean13 number.
   def set_digit(self, ind, digit):
     if ind >= 13:
       print("not possible to change the check digit.")
@@ -25,11 +26,15 @@ class Code:
       even = 3 * sum([int(inter[i]) for i in range(len(inter)) if i%2 == 1])
       cd = str(10 - (odd + even) % 10)
       self.code = inter[:-1] + cd
-  # Retrieves instance variable
+  # Returns the last digit (the check digit) of an ean13 number
   def get_checkdigit(self):
     return self.code[-1]
-  # Retrieves instance variable
+  # Returns de 12 first digits of an ean13 number
   def get_infodigit(self):
+    """
+    Function that returns de 12 first digits, which contains the information
+    of a product.
+    """
     return self.code[:-1]
   # Check if ean
   def ean(self):
@@ -72,7 +77,7 @@ def rand_ean_num():
 
 def rand_nean_num():
   """
-  Function that creates a random ean13 number.
+  Function that creates a random number that is not an ean13 number.
   """
   sal = ''.join([str(random.randint(0, 9)) for i in range(12)])
   cd = check_digit(sal)

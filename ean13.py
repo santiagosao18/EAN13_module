@@ -52,6 +52,14 @@ class Code:
        return True
       else:
        return False
+  
+  # Correct ean13
+  def correct(self):
+    odd = sum([int(self.code[i]) for i in range(len(self.code)-1) if i%2 == 0])
+    even = 3 * sum([int(self.code[i]) for i in range(len(self.code)) if i%2 == 1])
+    cd = 10 - (odd + even) % 10
+    self.code = self.code[:-1] + str(cd)
+    
 
 
 

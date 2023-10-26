@@ -1,6 +1,8 @@
 """
 Module to create and check EAN13 numbers.
-Otra parte.
+The EAN13 numbers consist of a series of 13 digits. 
+The first 12 digits contain information about a product,
+the last digit is a verification digit.
 """
 
 # Imported external libraries
@@ -9,8 +11,7 @@ import random
 # Defined classes
 
 class Code:
-  # Class Variable
-  # animal = 'dog'
+  # Class Variable that represents an EAN13 code number.
   # The init method or constructor
   def __init__(self, code):
   # Instance Variable

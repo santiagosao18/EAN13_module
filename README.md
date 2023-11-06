@@ -23,5 +23,11 @@ The check_ean(digits) checks if a sequence of 13 digits is a good EAN-13 number.
 
 ### 2.2) The Code class
 
+The set_digit method(ind, digit) permits changing the value of a given digit (other than the verification digit) at position ind (between 1 and 12) with the new value digit.
+The get_checkdigit method returns the verification digit (the last digit of the code).
+The get_infodigit method returns the information digits (the first 12 digits of the code).
+The ean method checks if a given code is a correct EAN-13 number.
+The correct method corrects de verification digit.
+
 ## 3) Examples
 1234567890128

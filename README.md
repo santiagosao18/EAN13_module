@@ -12,8 +12,16 @@ and
 
 ## 2) The module
 
-This is a simple module with one defined class and four functions.
+This is a simple module with four functions and one defined class.
 
+### 2.1) The functions
+
+The check_digit(digits) function takes a sequence of 12 digits and returns the verification digit.
+The rand_ean_num() creates a random number according to the EAN-13 standard (that is, the verification digit is the correct digit for the 12 first digits).
+The rand_nean_num() creates a random number that does not follows the EAN-13 standard (that is, the verification digit is not the correct digit for the 12 first digits).
+The check_ean(digits) checks if a sequence of 13 digits is a good EAN-13 number. Returns True or False.
+
+### 2.2) The Code class
 
 ## 3) Examples
 1234567890128

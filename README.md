@@ -12,6 +12,7 @@ and
 
 ## 2) The module
 
+This is a simple module with one defined class and four functions.
 
 
 ## 3) Examples

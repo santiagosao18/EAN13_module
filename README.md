@@ -42,12 +42,11 @@ check_digit('400781750225') >>> '9'
 
 
 You can create randon EAN-13 numbers:<br/>
-
 rand_ean_num() >>> '9704566317602'
 
 
 If you compute: <br/>
-check_digit('970456631760') >>> '2'
+`check_digit('970456631760')` >>> '2'
 
 
 You can also create randon numbers that does not satisfy the EAN-13 standard:<br/>

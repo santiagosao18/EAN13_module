@@ -36,23 +36,26 @@ You can find here a series of examples that show how each function, object and m
 ### 3.1) Examples using the functions
 
 The number 4007817502259 is a correct EAN-13 number, where 9 is the verification digit.
+
 If you compute 
 check_digit('400781750225') >>> '9'
 
 
 You can create randon EAN-13 numbers:
+
 rand_ean_num() >>> '9704566317602'
 If you compute 
 check_digit('970456631760') >>> '2'
 
 
 You can also create randon numbers that does not satisfy the EAN-13 standard:
+
 rand_nean_num() >>> '8427672846691'
-Which is not an EAN-13 number since the verification digit should be 9 instead of 1
+
+which is not an EAN-13 number since the verification digit should be 9 instead of 1
 check_digit('842767284669') >>> '9'
 
-
-with the function check_ean(digits) you can check if a sequence of 13 digits is a correct EAN-13 number:
+With the function check_ean(digits) you can check if a sequence of 13 digits is a correct EAN-13 number:
 check_ean('4007817502259') >>> True
 check_ean('4007817502258') >>> False
 check_ean('9704566317602') >>> True

@@ -91,7 +91,7 @@ digit is automatically changed to the correct value which is 7:<br/>
 `cn.code >>> 2234567890127`
 
 If the code is not a correct EAN-13 number, calling the correct method is possible to modify the code number: the method keeps
-the first 12 digits in its original form but modifies the verification digit to the correct value:<br/>
+the first 12 digits in its original form but modifies the verification digit to the correct value <br/>
 `cn = Code('1234567890129')`<br/>
 `cn.code >>> '1234567890129'`<br/>
 `cn.correct()`<br/>

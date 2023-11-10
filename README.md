@@ -37,13 +37,15 @@ You can find here a series of examples that show how each function, object and m
 
 The number 4007817502259 is a correct EAN-13 number, where 9 is the verification digit.
 
-If you compute 
+If you compute <br/>
 check_digit('400781750225') >>> '9'
 
 
 You can create randon EAN-13 numbers:
 
 rand_ean_num() >>> '9704566317602'
+
+
 If you compute 
 check_digit('970456631760') >>> '2'
 

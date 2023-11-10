@@ -30,5 +30,77 @@ The ean method checks if a given code is a correct EAN-13 number.
 The correct method corrects de verification digit.
 
 ## 3) Examples
-Continue...
-1234567890128
+
+You can find here a series of examples that show how each function, object and method works.
+
+### 3.1) Examples using the functions
+
+The number 4007817502259 is a correct EAN-13 number, where 9 is the verification digit.
+If you compute 
+check_digit('400781750225') >>> '9'
+
+
+You can create randon EAN-13 numbers:
+rand_ean_num() >>> '9704566317602'
+If you compute 
+check_digit('970456631760') >>> '2'
+
+
+You can also create randon numbers that does not satisfy the EAN-13 standard:
+rand_nean_num() >>> '8427672846691'
+Which is not an EAN-13 number since the verification digit should be 9 instead of 1
+check_digit('842767284669') >>> '9'
+
+
+with the function check_ean(digits) you can check if a sequence of 13 digits is a correct EAN-13 number:
+check_ean('4007817502259') >>> True
+check_ean('4007817502258') >>> False
+check_ean('9704566317602') >>> True
+check_ean('8427672846691') >>> False
+check_ean('8427672846699') >>> True
+
+### 3.2) Examples using the Code class and its methods
+
+With the Code class it is possible to create a number with 13 digits.
+This number could be or not a correct EAN-13 number. The Code class has a single attribute, the 'code' attribute that stores the code number.
+The class contains a number of methods to check if the code is a correct a EAN-13 number or not. It is possible to correct the verification digit
+and to modify a specific digit (within the first 12 digits in the sequence) that will change not only the selected digit, but also the verification
+digit to be consistent with the new digit.
+
+Here are some exmples. The number 1234567890128 is a correct EAN-13 number.
+
+Create a EAN-13 number and extract the verification digit and the information digits:
+
+cn = Code('1234567890128')
+cn.get_checkdigit() >>> 8
+cn.get_infodigit() >>> 123456789012
+
+Create a 13 digit code and verify if it corresponds to an EAN-13 number or not:
+
+cn = Code('1234567890128')
+cn.ean() >>> True
+cn = Code('1234567890129')
+cn.ean() >>> False
+
+Change a digit at a specific position. In the example below the first digit is changed by 2, and also the verification
+digit is automatically changed to the correct value which is 7:
+
+Change the first digit by 2:
+cn = Code('1234567890128')
+cn.set_digit(1,2)
+cn.code >>> 2234567890127
+
+If the code is not a correct EAN-13 number, calling the correct method is possible to modify the code number: the method keeps
+the first 12 digits in its original form but modifies the verification digit to the correct value:
+
+cn = Code('1234567890129')
+cn.code >>> '1234567890129'
+cn.correct()
+cn.code >>> '1234567890128'
+
+Naturally, applying the correct() method to a correct EAN-13 number does nothing:
+
+cn = Code('1234567890128')
+cn.code >>> '1234567890128'
+cn.correct()
+cn.code >>> '1234567890128'
